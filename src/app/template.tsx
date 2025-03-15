@@ -13,7 +13,7 @@ const Template = ({ children }: { children: React.ReactNode }) => {
         <div
           key={index}
           id={`banner-${index + 1}`}
-          className="min-h-screen bg-white z-10 fixed top-0 w-1/4"
+          className="min-h-screen bg-[#ceedf9] z-10 fixed top-0 w-1/4"
           style={{ left: `${(index * 25)}%` }} // Dynamically setting left position
         ></div>
       ))}
