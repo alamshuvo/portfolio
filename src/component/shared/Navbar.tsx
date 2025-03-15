@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, Calendar, Moon, Book, Mail, LayoutDashboard } from "lucide-react";
+import { Home, Calendar, Moon, Mail, LayoutDashboard } from "lucide-react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button"; // ShadCN Button

@@ -1,30 +1,23 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Roboto_Mono } from "next/font/google";
 import "./globals.css";
-import { Button } from "@/components/ui/button";
+
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/utils/authOptions";
 import Navbar from "@/component/shared/Navbar";
-import Home from "@/component/shared/Home";
 
 
+export const metadata: Metadata = {
+  title: "Iftakhars Portfolio",
+  description: "",
+};
 
-export const metadata:Metadata = {
- title:"Iftakhars Portfolio"
-}
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+export const roboto_mono = Roboto_Mono({
   subsets: ["latin"],
+  display: "swap",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-
-const session = await getServerSession(authOptions)
-
+const session = await getServerSession(authOptions);
 
 export default function RootLayout({
   children,
@@ -33,17 +26,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[#f1f5f9]`}
-      >
+      <body className={`${roboto_mono} antialiased bg-[#f1f5f9]`}>
         <Navbar session={session}></Navbar>
-     <div className="my-25">
-     <Home></Home>
-     </div>
-        <div className="min-h-screen w-[90%] mx-auto ">
-        {children}
-        </div>
-   
+       
+        <div className="min-h-screen w-[90%] mx-auto ">{children}</div>
       </body>
     </html>
   );
