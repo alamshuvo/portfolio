@@ -1,15 +1,18 @@
 import Image from "next/image";
 import RotatingText from "./RotatingText";
+
+import SocialButton from "./SocialButton";
 import Link from "next/link";
+import Skills from "./Skils/Skills";
 
 const Home = () => {
   return (
-    <div className=" flex justify-center items-center flex-col">
+    <div className="  flex justify-center items-center flex-col md:p-1 lg:p-1 p-4">
       <Image
         src={
-          "https://avatars.githubusercontent.com/u/132831970?s=400&u=7c2bc23233c5671ff3204b14eee0eba7cf372ce8&v=4"
+          "https://res.cloudinary.com/dqugrb0la/image/upload/v1742115966/idbh8kkd80pd3k49mkgr.jpg"
         }
-        className="border-5 rounded-full border-[#3c91b2] http://localhost:3000/_next/image?url=https%3A%2F%2Favatars.githubusercontent.com%2Fu%2F132831970%3Fs%3D400%26u%3D7c2bc23233c5671ff3204b14eee0eba7cf372ce8%26v%3D4&w=256&q=75rounded-full"
+        className="border-5 rounded-full border-[#3c91b2] "
         width={250}
         height={250}
         alt="fff"
@@ -19,7 +22,11 @@ const Home = () => {
         <RotatingText></RotatingText>
       </div>
       <div className="flex gap-5 mt-5">
-        <Link href={"https://github.com/alamshuvo"} target="blank">
+        <Link
+          href={"https://github.com/alamshuvo"}
+          target="_blank"
+          className="z-30"
+        >
           <svg
             stroke="#3c91b2"
             fill="#3c91b2"
@@ -37,7 +44,8 @@ const Home = () => {
           href={
             "https://discord.com/channels/985483595873402910/1218079541243678772"
           }
-          target="blank"
+          target="_blank"
+          className="z-30"
         >
           <svg
             stroke="#3c91b2"
@@ -54,7 +62,8 @@ const Home = () => {
         </Link>
         <Link
           href={"https://www.linkedin.com/in/iftakhar-alam-shuvo/"}
-          target="blank"
+          target="_blank"
+          className="z-30"
         >
           <svg
             stroke="#3c91b2"
@@ -70,7 +79,11 @@ const Home = () => {
           </svg>
         </Link>
 
-        <Link href={"https://wa.me/+8801980640702"} target="blank">
+        <Link
+          href={"https://wa.me/+8801980640702"}
+          target="_blank"
+          className="z-30"
+        >
           <svg
             stroke="#3c91b2"
             fill="#3c91b2"
@@ -84,6 +97,41 @@ const Home = () => {
             <path d="M12.003 1.999c-5.524 0-10.002 4.478-10.002 9.997 0 1.759.467 3.46 1.356 4.943l-1.439 5.256 5.387-1.41c1.432.781 3.048 1.192 4.699 1.192h.002c5.524 0 10.002-4.478 10.002-9.997 0-2.667-1.061-5.169-2.986-7.048-1.925-1.88-4.479-2.919-7.019-2.919zm.002 1.998c4.446 0 8.004 3.558 8.004 7.999 0 4.442-3.558 8.001-8.002 8.001h-.002c-1.485 0-2.932-.384-4.201-1.116l-.301-.173-3.199.835.855-3.124-.198-.316c-.803-1.282-1.226-2.77-1.226-4.107 0-4.441 3.558-7.999 8.002-7.999zm-2.002 3.998c-.263 0-.531.003-.796.01-.358.01-.766.126-1.046.397-.251.243-.427.636-.487.973-.108.584-.221 1.165-.308 1.749-.092.629-.175 1.259-.239 1.89-.027.27-.051.541-.065.813-.008.16.005.327.059.48.122.342.487.537.834.652.399.129.811.211 1.221.298.187.04.369.097.54.188.06.032.114.078.155.135.192.265.373.537.561.803.083.116.188.228.323.275.273.095.564.073.846.073.431.001.86.018 1.288-.021.288-.026.591-.1.797-.323.27-.28.537-.566.799-.854.14-.153.283-.305.394-.482.104-.167.126-.362.126-.555-.002-.152-.02-.308-.053-.457-.082-.348-.267-.646-.44-.948-.072-.127-.165-.243-.247-.364-.077-.116-.168-.218-.26-.322-.221-.248-.461-.472-.691-.707-.229-.234-.458-.468-.686-.702-.229-.235-.445-.475-.708-.671-.067-.05-.148-.091-.233-.084-.207.017-.406.081-.6.157-.413.163-.821.348-1.233.52-.087.035-.165.093-.236.153-.188.163-.279.403-.348.636-.072.247-.137.496-.199.746-.058.229-.103.46-.14.693-.038.245-.065.49-.077.736-.014.303.028.607.06.909.02.196.04.392.06.589.007.066.01.134-.01.198-.086.288-.336.493-.576.655-.272.183-.579.303-.88.407-.153.051-.319.058-.468-.019-.214-.108-.438-.193-.657-.296-.208-.097-.423-.183-.624-.293-.177-.095-.343-.223-.493-.368-.226-.214-.451-.429-.676-.644-.084-.08-.159-.166-.247-.237-.07-.058-.16-.104-.252-.105-.177-.001-.345.06-.505.124-.323.126-.647.253-.971.379z"></path>
           </svg>
         </Link>
+      </div>
+      {/* details text */}
+      <div className="lg:mt-16 mt-10">
+        <p className="text-xl text-[#535353] text-justify">
+          I'm Iftakhar, a Full Stack Developer with experience in front-end
+          development using React and Next.js and back-end development with
+          Node.js and Express. I enjoy working in a team, solving problems, and
+          constantly learning new technologies to stay up to date. My goal is to
+          build a strong foundation in full-stack development and contribute to
+          meaningful projects.
+        </p>
+
+        <div className="flex justify-center items-center z-30 lg:mt-16 mt-10">
+          <SocialButton></SocialButton>
+        </div>
+        <div className="lg:mt-16 mt-10">
+          <p className="text-4xl font-bold text-center my-5 text-[#334155] relative after:content-[''] after:block after:w-0 after:h-[3px] after:bg-[#3c91b2] after:transition-all after:duration-500 hover:after:w-full">
+            Skills
+          </p>
+
+          <Skills></Skills>
+        </div>
+      </div>
+
+      {/* git hub contribution */}
+      <div className="lg:mt-16 mt-10">
+        <p className="text-4xl font-bold text-center my-5 text-[#334155] relative after:content-[''] after:block after:w-0 after:h-[3px] after:bg-[#3c91b2] after:transition-all after:duration-500 hover:after:w-full">
+          Github Contribution
+        </p>
+        <div>
+          <img
+            src="https://ghchart.rshah.org/alamshuvo"
+            alt="GitHub Contributions"
+          />
+        </div>
       </div>
     </div>
   );

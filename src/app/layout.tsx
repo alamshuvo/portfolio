@@ -29,7 +29,7 @@ export default function RootLayout({
       <body className={`${roboto_mono} antialiased bg-[#f1f5f9]`}>
         <Navbar session={session}></Navbar>
        
-        <div className="min-h-screen w-[90%] mx-auto ">{children}</div>
+        <div className="min-h-screen container mx-auto ">{children}</div>
       </body>
     </html>
   );

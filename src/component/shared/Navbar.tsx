@@ -4,7 +4,11 @@ import { Home, Calendar, Moon, Mail, LayoutDashboard } from "lucide-react";
 import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button"; // ShadCN Button
-import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip"; // ShadCN Tooltip
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipTrigger,
+} from "@/components/ui/tooltip"; // ShadCN Tooltip
 import { motion } from "framer-motion"; // For animations
 
 type SessionProps = {
@@ -33,7 +37,11 @@ const Navbar = ({ session }: { session: SessionProps | null }) => {
                 { href: "/", label: "Home", icon: Home },
                 { href: "/calendar", label: "Calendar", icon: Calendar },
                 { href: "/theme", label: "Theme", icon: Moon },
-                { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+                {
+                  href: "/dashboard",
+                  label: "Dashboard",
+                  icon: LayoutDashboard,
+                },
                 { href: "/contact", label: "Contact", icon: Mail },
               ].map(({ href, label, icon: Icon }, index) => (
                 <li key={index} className="hover:text-gray-600">
@@ -64,7 +72,10 @@ const Navbar = ({ session }: { session: SessionProps | null }) => {
               </Button>
             ) : (
               <Link href="/login">
-                <Button variant="outline" className="border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white">
+                <Button
+                  variant="outline"
+                  className="border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white"
+                >
                   Login
                 </Button>
               </Link>
@@ -74,25 +85,25 @@ const Navbar = ({ session }: { session: SessionProps | null }) => {
       </div>
 
       {/* Mobile Navbar (Sticky Bottom) */}
-      <div className="lg:hidden fixed bottom-0 left-0 w-full bg-white shadow-md border-t z-50">
-        <div className="flex justify-around py-3">
+      <div className="lg:hidden fixed bottom-0 left-0 w-full bg-white shadow-md border-t z-50 pb-[env(safe-area-inset-bottom)]">
+        <div className="flex justify-around items-center py-3">
           {[
             { href: "/", label: "Home", icon: Home },
-            { href: "/calendar", label: "Calendar", icon: Calendar },
             { href: "/theme", label: "Theme", icon: Moon },
             { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
             { href: "/contact", label: "Contact", icon: Mail },
           ].map(({ href, label, icon: Icon }, index) => (
-            <Tooltip key={index}>
-              <TooltipTrigger>
-                <Link href={href} className="text-[#3c91b2]">
-                  <motion.div variants={iconVariants} whileHover="hover">
-                    <Icon className="w-5 h-5" />
-                  </motion.div>
-                </Link>
-              </TooltipTrigger>
-              <TooltipContent>{label}</TooltipContent>
-            </Tooltip>
+            <Link
+              key={index}
+              href={href}
+              className="text-[#3c91b2] flex flex-col items-center"
+            >
+              <motion.div variants={iconVariants} whileHover="hover">
+                <Icon className="w-6 h-6" />
+              </motion.div>
+              <span className="text-xs mt-1">{label}</span>{" "}
+              {/* Visible label instead of Tooltip */}
+            </Link>
           ))}
         </div>
       </div>
