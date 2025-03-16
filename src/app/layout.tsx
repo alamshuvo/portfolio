@@ -17,13 +17,14 @@ export const roboto_mono = Roboto_Mono({
   display: "swap",
 });
 
-const session = await getServerSession(authOptions);
 
-export default function RootLayout({
+
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await getServerSession(authOptions);
   return (
     <html lang="en">
       <body className={`${roboto_mono} antialiased bg-[#f1f5f9]`}>

@@ -1,7 +1,7 @@
 const Skills = () => {
   return (
     <div className="grid grid-cols-2 lg:gap-4 gap-2 md:grid-cols-2 lg:grid-cols-4  ">
-      <div className="flex items-center border border-[#3c91b2] animate__animated animate-bounce  rounded-lg p-3 max-w-[240px] bg-gray-50 hover:bg-[#b9e1f1] cursor-pointer shadow-md z-30">
+      <div className="flex items-center border border-[#3c91b2] animate__animated animate__repeat-3   animate-bounce  rounded-lg p-3 max-w-[240px] bg-gray-50 hover:bg-[#b9e1f1] cursor-pointer shadow-md z-30">
         <div className="mr-3">
           <svg
             stroke="currentColor"

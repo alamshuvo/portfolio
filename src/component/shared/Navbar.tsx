@@ -1,15 +1,16 @@
 "use client";
 
 import { Home, Calendar, Moon, Mail, LayoutDashboard } from "lucide-react";
-import { signOut } from "next-auth/react";
+
 import Link from "next/link";
-import { Button } from "@/components/ui/button"; // ShadCN Button
+
 import {
   Tooltip,
   TooltipContent,
   TooltipTrigger,
 } from "@/components/ui/tooltip"; // ShadCN Tooltip
 import { motion } from "framer-motion"; // For animations
+import { signOut } from "next-auth/react";
 
 type SessionProps = {
   user?: {
@@ -25,6 +26,7 @@ const iconVariants = {
 };
 
 const Navbar = ({ session }: { session: SessionProps | null }) => {
+  console.log(session);
   return (
     <>
       {/* Desktop Navbar (Top) */}
@@ -63,21 +65,21 @@ const Navbar = ({ session }: { session: SessionProps | null }) => {
           {/* Right Side: Login/Logout */}
           <div className="flex items-center">
             {session?.user ? (
-              <Button
-                variant="outline"
-                className="border-red-500 text-red-500 hover:bg-red-500 hover:text-white"
+              <button
+               
+                className="border-red-500 text-red-500 px-2 border-2  cursor-pointer hover:bg-red-500 hover:text-white"
                 onClick={() => signOut()}
               >
                 Logout
-              </Button>
+              </button>
             ) : (
               <Link href="/login">
-                <Button
-                  variant="outline"
-                  className="border-teal-500 text-teal-500 hover:bg-teal-500 hover:text-white"
+                <button
+                 
+                  className="border-teal-500 text-teal-500 cursor-pointer px-2 border-2 rounded-lg hover:bg-teal-500 hover:text-white"
                 >
                   Login
-                </Button>
+                </button>
               </Link>
             )}
           </div>
