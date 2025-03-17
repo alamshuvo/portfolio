@@ -1,11 +1,7 @@
 "use client";
 
-import { loginUser } from "@/utils/actions/loginUser";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useForm } from "react-hook-form";
 
 export type FormValues = {
   email: string;
@@ -13,28 +9,6 @@ export type FormValues = {
 };
 
 const LoginPage = () => {
-  const router = useRouter()
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm<FormValues>();
-
-  const onSubmit = async (data: FormValues) => {
-    try {
-      const res = await loginUser(data);
-      if (res.accessToken) {
-        alert(res.message);
-        localStorage.setItem('accessToken',res.accessToken)
-        router.push("/")
-       
-      }
-    } catch (err: any) {
-      console.error(err.message);
-      throw new Error(err.message);
-    }
-  };
-
   return (
     <div className="my-10 w-[90%] mx-auto lg:mt-20">
       <h1 className="text-center text-4xl mb-5 font-bold">
@@ -52,19 +26,20 @@ const LoginPage = () => {
         </div>
 
         <div className="w-[80%] mx-auto bg-white p-6 shadow-lg rounded-lg">
-        
-
-        
-
           <p className="text-center mt-6 text-sm text-gray-500">
-          Only Sign in for Social
+            Only Sign in for Social
           </p>
 
           {/* Social Login Buttons */}
           <div className="flex justify-center gap-4 mt-4">
-            <button onClick={()=>signIn("google",{
-              callbackUrl:"http://localhost:3000/dashboard"
-            })} className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200">
+            <button
+              onClick={() =>
+                signIn("google", {
+                  callbackUrl: "http://localhost:3000/dashboard",
+                })
+              }
+              className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200"
+            >
               <Image
                 src="https://www.freepnglogos.com/uploads/google-logo-png/google-logo-png-webinar-optimizing-for-success-google-business-webinar-13.png"
                 width={30}
@@ -72,9 +47,14 @@ const LoginPage = () => {
                 alt="Google logo"
               />
             </button>
-            <button onClick={()=>signIn("github",{
-              callbackUrl:"http://localhost:3000/dashboard"
-            })} className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200">
+            <button
+              onClick={() =>
+                signIn("github", {
+                  callbackUrl: "http://localhost:3000/dashboard",
+                })
+              }
+              className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200"
+            >
               <Image
                 src="https://cdn-icons-png.flaticon.com/512/25/25231.png"
                 width={25}

@@ -26,7 +26,7 @@ const iconVariants = {
 };
 
 const Navbar = ({ session }: { session: SessionProps | null }) => {
-  console.log(session);
+ 
   return (
     <>
       {/* Desktop Navbar (Top) */}

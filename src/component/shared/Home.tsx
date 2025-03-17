@@ -4,6 +4,7 @@ import RotatingText from "./RotatingText";
 import SocialButton from "./SocialButton";
 import Link from "next/link";
 import Skills from "./Skils/Skills";
+import Articales from "./Articales/Articales";
 
 const Home = () => {
   return (
@@ -101,7 +102,7 @@ const Home = () => {
       {/* details text */}
       <div className="lg:mt-16 mt-10">
         <p className="text-xl text-[#535353] text-justify">
-          I'm Iftakhar, a Full Stack Developer with experience in front-end
+          Im Iftakhar, a Full Stack Developer with experience in front-end
           development using React and Next.js and back-end development with
           Node.js and Express. I enjoy working in a team, solving problems, and
           constantly learning new technologies to stay up to date. My goal is to
@@ -126,12 +127,17 @@ const Home = () => {
         <p className="text-4xl font-bold text-center my-5 text-[#334155] relative after:content-[''] after:block after:w-0 after:h-[3px] after:bg-[#3c91b2] after:transition-all after:duration-500 hover:after:w-full">
           Github Contribution
         </p>
-        <div>
+        <div className="border-2 p-4 border-[#3c91b2] rounded-lg">
           <img
             src="https://ghchart.rshah.org/alamshuvo"
             alt="GitHub Contributions"
           />
         </div>
+      </div>
+
+      {/* article */}
+      <div className="lg:mt-16 mt-10">
+      <Articales></Articales>
       </div>
     </div>
   );
