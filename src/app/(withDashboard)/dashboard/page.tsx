@@ -12,7 +12,7 @@ const DashboardPage = async () => {
         <div className="bg-white shadow-md rounded-lg p-6 md:p-10 w-full max-w-2xl text-center">
           {/* Profile Image */}
           <Image
-            src={session?.user?.image}
+            src={session?.user?.image || "/default-profile.png"}
             alt="User Profile Image"
             width={120}
             height={120}
