@@ -16,20 +16,20 @@ const Sidebar = () => {
         </li>
         <li>
           <Link
-            href="/dashboard/user-info"
+            href="/dashboard/addBlog"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
             <FaUser className="h-5 w-5" />
-            <span>User Info</span>
+            <span>Add Blog</span>
           </Link>
         </li>
         <li>
           <Link
-            href="/dashboard/settings"
+            href="/dashboard/projects"
             className="flex items-center space-x-2 p-3 rounded-md hover:bg-gray-200 text-gray-700"
           >
             <FaCog className="h-5 w-5" />
-            <span>Settings</span>
+            <span>Projects</span>
           </Link>
         </li>
       </ul>

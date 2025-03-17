@@ -3,10 +3,7 @@
 import { signIn } from "next-auth/react";
 import Image from "next/image";
 
-export type FormValues = {
-  email: string;
-  password: string;
-};
+
 
 const LoginPage = () => {
   return (

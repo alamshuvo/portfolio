@@ -5,6 +5,7 @@ import "./globals.css";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/utils/authOptions";
 import Navbar from "@/component/shared/Navbar";
+import { Toaster } from "sonner";
 
 
 export const metadata: Metadata = {
@@ -28,6 +29,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={`${roboto.className} antialiased bg-[#f1f5f9]`}>
+        <Toaster></Toaster>
         <Navbar session={session}></Navbar>
        
         <div className="min-h-screen container mx-auto ">{children}</div>
