@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use client"
 
 import { addBlogs } from "@/utils/actions/addBlogs";
@@ -15,7 +17,7 @@ const AddBlogPage = () => {
     const {
         register,
         handleSubmit,
-        formState: { errors },
+        formState: { errors:any },
       } = useForm<FormValues>();
 
       const onSubmit = async (data: FormValues) => {

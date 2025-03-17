@@ -32,7 +32,7 @@ const LoginPage = () => {
             <button
               onClick={() =>
                 signIn("google", {
-                  callbackUrl: "http://localhost:3000/dashboard",
+                  callbackUrl: "https://portfolio-swart-ten-48.vercel.app/dashboard",
                 })
               }
               className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200"
@@ -47,7 +47,7 @@ const LoginPage = () => {
             <button
               onClick={() =>
                 signIn("github", {
-                  callbackUrl: "http://localhost:3000/dashboard",
+                  callbackUrl: "https://portfolio-swart-ten-48.vercel.app/dashboard",
                 })
               }
               className="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full shadow-md hover:bg-gray-200"

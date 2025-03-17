@@ -26,7 +26,6 @@ const iconVariants = {
 };
 
 const Navbar = ({ session }: { session: SessionProps | null }) => {
- 
   return (
     <>
       {/* Desktop Navbar (Top) */}
@@ -66,7 +65,6 @@ const Navbar = ({ session }: { session: SessionProps | null }) => {
           <div className="flex items-center">
             {session?.user ? (
               <button
-               
                 className="border-red-500 text-red-500 px-2 border-2  cursor-pointer hover:bg-red-500 hover:text-white"
                 onClick={() => signOut()}
               >
@@ -74,10 +72,7 @@ const Navbar = ({ session }: { session: SessionProps | null }) => {
               </button>
             ) : (
               <Link href="/login">
-                <button
-                 
-                  className="border-teal-500 text-teal-500 cursor-pointer px-2 border-2 rounded-lg hover:bg-teal-500 hover:text-white"
-                >
+                <button className="border-teal-500 text-teal-500 cursor-pointer px-2 border-2 rounded-lg hover:bg-teal-500 hover:text-white">
                   Login
                 </button>
               </Link>
@@ -103,10 +98,25 @@ const Navbar = ({ session }: { session: SessionProps | null }) => {
               <motion.div variants={iconVariants} whileHover="hover">
                 <Icon className="w-6 h-6" />
               </motion.div>
-              <span className="text-xs mt-1">{label}</span>{" "}
-              {/* Visible label instead of Tooltip */}
+              <span className="text-xs mt-1">{label}</span>
             </Link>
           ))}
+
+          {/* Add Login/Logout button */}
+          {session?.user ? (
+            <button
+              className="border-red-500 text-red-500 px-2 border-2 cursor-pointer hover:bg-red-500 hover:text-white"
+              onClick={() => signOut()}
+            >
+              Logout
+            </button>
+          ) : (
+            <Link href="/login">
+              <button className="border-teal-500 text-teal-500 cursor-pointer px-2 border-2 rounded-lg hover:bg-teal-500 hover:text-white">
+                Login
+              </button>
+            </Link>
+          )}
         </div>
       </div>
     </>

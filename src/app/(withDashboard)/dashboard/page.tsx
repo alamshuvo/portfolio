@@ -4,7 +4,7 @@ import Image from "next/image";
 
 const DashboardPage = async () => {
   const session = await getServerSession(authOptions);
-  console.log(session);
+
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen px-4">
