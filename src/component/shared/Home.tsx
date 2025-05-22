@@ -5,6 +5,8 @@ import SocialButton from "./SocialButton";
 import Link from "next/link";
 import Skills from "./Skils/Skills";
 import Articales from "./Articales/Articales";
+import Course from "./Course/Course";
+import Experience from "./Experience/Experience";
 
 const Home = () => {
   return (
@@ -137,7 +139,15 @@ const Home = () => {
 
       {/* article */}
       <div className="lg:mt-16 mt-10">
-      <Articales></Articales>
+        <Articales></Articales>
+      </div>
+      {/* Course */}
+      <div className="lg:mt-16 mt-10">
+        <Course></Course>
+      </div>
+      {/* Experience */}
+      <div className="lg:mt-16 mt-10">
+      <Experience></Experience>
       </div>
     </div>
   );

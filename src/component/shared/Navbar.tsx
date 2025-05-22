@@ -1,6 +1,6 @@
 "use client";
 
-import { Home, Calendar, Moon, Mail, LayoutDashboard } from "lucide-react";
+import { Book, ExpandIcon, Home } from "lucide-react";
 
 import Link from "next/link";
 
@@ -10,22 +10,17 @@ import {
   TooltipTrigger,
 } from "@/components/ui/tooltip"; // ShadCN Tooltip
 import { motion } from "framer-motion"; // For animations
-import { signOut } from "next-auth/react";
+import { GiSkills } from "react-icons/gi";
+import { SiCoursera } from "react-icons/si";
 
-type SessionProps = {
-  user?: {
-    name?: string | null;
-    email?: string | null;
-    image?: string | null;
-  };
-};
+
 
 // Hover animation
 const iconVariants = {
   hover: { x: [0, -2, 2, 0], transition: { duration: 0.3 } },
 };
 
-const Navbar = ({ session }: { session: SessionProps | null }) => {
+const Navbar = () => {
   return (
     <>
       {/* Desktop Navbar (Top) */}
@@ -36,14 +31,10 @@ const Navbar = ({ session }: { session: SessionProps | null }) => {
             <ul className="flex space-x-6 text-gray-800">
               {[
                 { href: "/", label: "Home", icon: Home },
-                { href: "/calendar", label: "Calendar", icon: Calendar },
-                { href: "/theme", label: "Theme", icon: Moon },
-                {
-                  href: "/dashboard",
-                  label: "Dashboard",
-                  icon: LayoutDashboard,
-                },
-                { href: "/contact", label: "Contact", icon: Mail },
+                { href: "/blog", label: "Blogs", icon: Book },
+                {href:"/skill",label:"Skills",icon:GiSkills},
+                {href:"/course",label:"Course",icon: SiCoursera},
+                {href:"/experience",label:"Experience",icon: ExpandIcon},
               ].map(({ href, label, icon: Icon }, index) => (
                 <li key={index} className="hover:text-gray-600">
                   <Tooltip>
@@ -62,22 +53,6 @@ const Navbar = ({ session }: { session: SessionProps | null }) => {
           </nav>
 
           {/* Right Side: Login/Logout */}
-          <div className="flex items-center">
-            {session?.user ? (
-              <button
-                className="border-red-500 text-red-500 px-2 border-2  cursor-pointer hover:bg-red-500 hover:text-white"
-                onClick={() => signOut()}
-              >
-                Logout
-              </button>
-            ) : (
-              <Link href="/login">
-                <button className="border-teal-500 text-teal-500 cursor-pointer px-2 border-2 rounded-lg hover:bg-teal-500 hover:text-white">
-                  Login
-                </button>
-              </Link>
-            )}
-          </div>
         </div>
       </div>
 
@@ -86,9 +61,10 @@ const Navbar = ({ session }: { session: SessionProps | null }) => {
         <div className="flex justify-around items-center py-3">
           {[
             { href: "/", label: "Home", icon: Home },
-            { href: "/theme", label: "Theme", icon: Moon },
-            { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
-            { href: "/contact", label: "Contact", icon: Mail },
+            { href: "/blog", label: "Blogs", icon: Book },
+            {href:"/course",label:"Course",icon: SiCoursera},
+            {href:"/skill",label:"Skills",icon:GiSkills},
+            {href:"/experience",label:"Experience",icon: ExpandIcon},
           ].map(({ href, label, icon: Icon }, index) => (
             <Link
               key={index}
@@ -103,20 +79,6 @@ const Navbar = ({ session }: { session: SessionProps | null }) => {
           ))}
 
           {/* Add Login/Logout button */}
-          {session?.user ? (
-            <button
-              className="border-red-500 text-red-500 px-2 border-2 cursor-pointer hover:bg-red-500 hover:text-white"
-              onClick={() => signOut()}
-            >
-              Logout
-            </button>
-          ) : (
-            <Link href="/login">
-              <button className="border-teal-500 text-teal-500 cursor-pointer px-2 border-2 rounded-lg hover:bg-teal-500 hover:text-white">
-                Login
-              </button>
-            </Link>
-          )}
         </div>
       </div>
     </>

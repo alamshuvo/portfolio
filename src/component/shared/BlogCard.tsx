@@ -1,44 +1,62 @@
-"use client"
+"use client";
 
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
+import { FaFileAlt } from "react-icons/fa";
 
-const BlogCard = ({ blogs }: { blogs: { blogName: string; blogUrl: string; blogImage: string; description: string }[] }) => {
-  
+const BlogCard = ({
+  blogs,
+}: {
+  blogs: {
+    blogsName: string;
+    externalLink: string | undefined;
+    photo: string;
+    title: string;
+    description: string;
+  }[];
+}) => {
   return (
-    <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-5 my-5">
-      {blogs.map((i, key) => (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 py-10 px-4">
+      {blogs.map((blog, index) => (
         <div
-          key={key}
-          className="border-2 p-4  bg-[#3c91b2]   rounded-lg shadow-lg  mx-auto"
+          key={index}
+          className="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-200 hover:shadow-2xl transition-all duration-300 flex flex-col"
         >
           {/* Image */}
-          <div className="rounded-lg overflow-hidden ">
+          <div className="relative w-full h-56">
             <Image
-              src={ i.blogImage||"/your-image.png"} // Dynamically set image from blog data
-              alt="Blog post image"
-              width={0}
-              height={0}
-              className="w-full object-cover"
+              src={blog.photo || "/placeholder.jpg"}
+              alt={blog.blogsName}
+              fill
+              className="object-cover transition-transform duration-300 hover:scale-105"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent rounded-t-2xl" />
           </div>
 
           {/* Content */}
-          <div className="mt-4 text-white">
-            <h3 className="text-lg font-semibold flex items-center">
-               {i.blogName} {/* Dynamically set title */}
+          <div className="p-6 flex flex-col flex-grow">
+            {/* Subtitle */}
+            <h3 className="text-sm text-gray-500 uppercase tracking-wide mb-1">
+              {blog.title}
             </h3>
 
-            {/* Metadata */}
-            <div className="flex items-center text-gray-400 text-sm mt-2">
-              <span className="mr-2 text-white">{i.description.slice(0,200) || "5 min"}</span>
-            </div>
+            {/* Main Title */}
+            <h2 className="text-xl font-bold text-gray-800 mb-2 hover:text-blue-600 transition">
+              {blog.blogsName}
+            </h2>
+
+            {/* Description */}
+            <p className="text-gray-600 text-sm mb-4 flex-grow">
+              {blog.description.slice(0, 200)}...
+            </p>
 
             {/* Button */}
-            <Link href={i.blogUrl} target="_blank">
-            <button className="mt-4 cursor-pointer px-4 py-2 border border-gray-400 rounded-md text-gray-300 hover:bg-[#f1f5f9] hover:text-black transition">
-              Read More
-            </button>
+            <Link href={blog.externalLink || "/"} target="_blank">
+            <Button className="flex items-center px-5 py-5 text-xl text-white bg-[#3c91b2] rounded-lg cursor-pointer shadow-md hover:bg-[#317a91] transition">
+            <FaFileAlt className="mr-2" />
+            Read Full blog 
+          </Button>
             </Link>
           </div>
         </div>

@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
 import { Roboto } from 'next/font/google'
 import "./globals.css";
-
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/utils/authOptions";
 import Navbar from "@/component/shared/Navbar";
 import { Toaster } from "sonner";
 
@@ -25,12 +22,13 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const session = await getServerSession(authOptions);
   return (
     <html lang="en">
       <body className={`${roboto.className} antialiased bg-[#f1f5f9]`}>
         <Toaster></Toaster>
-        <Navbar session={session}></Navbar>
+        <div className=" mt-4 lg:mt-20 md:lt-10 ">
+        <Navbar></Navbar>
+        </div>
        
         <div className="min-h-screen container mx-auto ">{children}</div>
       </body>
