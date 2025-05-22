@@ -14,7 +14,7 @@ const ExperienceCard = ({
 }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 py-8">
-      {experiences.map((exp, index) => (
+      {experiences?.map((exp, index) => (
         <div
           key={index}
           className="bg-white shadow-md border border-gray-200 rounded-2xl p-6 hover:shadow-lg transition duration-300"

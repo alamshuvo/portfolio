@@ -1,6 +1,6 @@
 "use client";
 
-import { Book, ExpandIcon, Home } from "lucide-react";
+import { Book, ExpandIcon, Home, Projector } from "lucide-react";
 
 import Link from "next/link";
 
@@ -35,6 +35,7 @@ const Navbar = () => {
                 {href:"/skill",label:"Skills",icon:GiSkills},
                 {href:"/course",label:"Course",icon: SiCoursera},
                 {href:"/experience",label:"Experience",icon: ExpandIcon},
+                {href:"/project",label:"Projects",icon: Projector},
               ].map(({ href, label, icon: Icon }, index) => (
                 <li key={index} className="hover:text-gray-600">
                   <Tooltip>
